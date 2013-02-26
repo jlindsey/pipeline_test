@@ -19,11 +19,6 @@ GEM
       rake
     haml (4.0.0)
       tilt
-    hamlbars (2.0.0)
-      execjs (>= 1.2)
-      haml
-      sprockets
-      tilt
     hike (1.2.1)
     listen (0.7.3)
     lumberjack (1.0.2)
@@ -53,7 +48,6 @@ DEPENDENCIES
   guard
   guard-rake
   haml (= 4.0.0)
-  hamlbars (~> 2.0.0)
   rake (~> 10.0.0)
   rb-fsevent
   sprockets (~> 2.0.0)
