@@ -6,6 +6,6 @@
 		"npm": "1.1.41"
 	},
 	"dependencies": {
-		"connect": "*"
+		"handlebars": "*"
 	}
 }
