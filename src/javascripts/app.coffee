@@ -10,12 +10,12 @@
 #= require_self
 
 $(document).on 'pageinit', '#index', () ->
-	$context = $(this)
-	users = new Users
-	users.on 'reset', (collection) ->
-		$context.find('#users-list').prepend Handlebars.templates.users_listview(collection.toJSON())
-		$context.find('#users-list').trigger 'create'
-		return
+  $context = $(this)
+  users = new Users
+  users.on 'reset', (collection) ->
+    $context.find('#users-list').prepend Handlebars.templates.users_listview(collection.toJSON())
+    $context.find('#users-list').trigger 'create'
+    return
 
-	users.fetch()
-	return
+  users.fetch()
+  return
