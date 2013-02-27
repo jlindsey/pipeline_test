@@ -21,6 +21,8 @@ PUBLIC_DIR 		= ROOT.join('public')
 PRODUCTS			= ['public/javascripts/app.js', 'public/index.html']
 
 @sprockets = Sprockets::Environment.new(ROOT) { |env| env.logger = LOGGER }
+@sprockets.js_compressor = Uglifier.new(:mangle => true)
+@sprockets.css_compressor = YUI::CssCompressor.new
 [COFFEE_DIR, SASS_DIR].each { |path| @sprockets.append_path path.to_s }
 
 task :default => PRODUCTS
