@@ -18,7 +18,7 @@ COFFEE_FILES 	= FileList[COFFEE_DIR.join('*.coffee').to_s]
 SASS_FILES		= FileList[SASS_DIR.join('*.sass').to_s]
 HAML_FILES 		= FileList[HAML_DIR.join('*.haml').to_s]
 PUBLIC_DIR 		= ROOT.join('public')
-PRODUCTS			= ['public/javascripts/app.js', 'public/index.html']
+PRODUCTS			= ['public/javascripts/app.js', 'public/stylesheets/app.css', 'public/index.html']
 
 @sprockets = Sprockets::Environment.new(ROOT) { |env| env.logger = LOGGER }
 @sprockets.js_compressor = Uglifier.new(:mangle => true)
@@ -35,6 +35,14 @@ rule '.html' => lambda { |f| find_source(f, :haml) } do |t|
 end
 
 rule '.js' => lambda { |f| find_source(f, :coffee) } do |t|
+	sprockets_write t
+end
+
+rule '.css' => lambda { |f| find_source(f, :sass) } do |t|
+	sprockets_write t
+end
+
+def sprockets_write(t)
 	assets = @sprockets.find_asset(t.source)
 	prefix, basename = assets.pathname.to_s.split('/')[-2..-1]
 	FileUtils.mkpath PUBLIC_DIR.join(prefix)
@@ -45,6 +53,7 @@ def find_source(file, type)
 	ext_built = case type
 							when :coffee then '.js'
 							when :haml then '.html'
+							when :sass then '.css'
 							end
 	ext_source = ('.' << type.to_s)
 
