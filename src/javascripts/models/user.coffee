@@ -1,3 +1,3 @@
 User = Backbone.Model.extend
-	defaults:
-		name: ''
+  defaults:
+    name: ''

@@ -1,5 +1,5 @@
 %ul(data-role="listview")
-	{{#each this}}
-	%li
-		%a(href='#') {{this.name}}
-	{{/each}}
+  {{#each this}}
+  %li
+    %a(href='#') {{this.name}}
+  {{/each}}

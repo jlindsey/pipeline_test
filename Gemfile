@@ -9,7 +9,7 @@ gem 'uglifier', '~> 1.3.0'
 gem 'yui-compressor', '~> 0.9.6', :require => 'yui/compressor'
 
 group :development do
-	gem 'guard'
-	gem 'guard-rake'
-	gem 'rb-fsevent'
+  gem 'guard'
+  gem 'guard-rake'
+  gem 'rb-fsevent'
 end
