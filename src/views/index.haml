@@ -2,5 +2,10 @@
 %html
 %head
 	%title Hello
-%body
-	%h1 Hello there
+	%link(rel="stylesheet" href="/stylesheets/app.css")
+	%script(type="text/javascript" src="/javascripts/app.js")
+%body(lang='en')
+	#index(data-role='page')
+		#header(data-role='header')
+			%h1 JQM Test
+		#users-list(data-role='content')
